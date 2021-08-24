@@ -24,12 +24,13 @@ class MainController
         $data = new DataApiNasa();
         $dataPicture = $data->callApiNasaMarsImage();
         var_dump($dataPicture);
+         $this->show('mars');
+    }
         // $this->show('picture',  [
         //     "images" => $image,
         //     "explanation" => $description,
         //     "title" => $title
         // ]);
-    }
 
     //page d'erreur 404
     public function fourofour()

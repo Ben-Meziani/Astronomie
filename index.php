@@ -18,3 +18,6 @@ if($page == "home") {
 if($page == "dailyPicture") {
     $controller->dailyPicture();
 }
+if($page == "mars") {
+    $controller->marsPicture();
+}
