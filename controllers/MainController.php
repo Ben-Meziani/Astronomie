@@ -11,20 +11,35 @@ class MainController
         $data = new DataApiNasa();
         $dataPicture = $data->callApiNasaDailyImage();
         $description =  $dataPicture["explanation"];
-        $image = $dataPicture["hdurl"];
         $title = $dataPicture["title"]; 
-        $this->show('picture',  [
-            "images" => $image,
-            "explanation" => $description,
-            "title" => $title
-        ]);
+        if (isset($dataPicture["hdurl"])) {
+            $image = $dataPicture["hdurl"];
+            $this->show('picture',  [
+                "images" => $image,
+                "explanation" => $description,
+                "title" => $title,
+            ]);
+        }
+        if ($dataPicture["url"]) {
+            $video = $dataPicture["url"];
+            $this->show('picture',  [
+                "videos" => $video,
+                "explanation" => $description,
+                "title" => $title,
+            ]);
+        }
     }
     public function marsPicture()
     {
         $data = new DataApiNasa();
-        $dataPicture = $data->callApiNasaMarsImage();
-        var_dump($dataPicture);
-         $this->show('mars');
+        $dataMars = $data->callApiNasaMarsImage();
+        $images =  $dataMars['latest_photos'][0]['img_src'];
+        $title = $dataMars['latest_photos'][0]['camera']['full_name'];
+        var_dump($title);
+         $this->show('mars', [
+             'image' => $images,
+             'title' => $title
+        ]);
     }
         // $this->show('picture',  [
         //     "images" => $image,
