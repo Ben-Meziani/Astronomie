@@ -1,11 +1,4 @@
-<?php
-if (isset($viewVars['images'])) {
-    $images = $viewVars['images'];
-}
-$videos = $viewVars['videos'];
-$explanation = $viewVars['explanation'];
-$title = $viewVars['title'];
-?>
+
 <section class="page-section cta">
     <div class="container">
         <div class="row">

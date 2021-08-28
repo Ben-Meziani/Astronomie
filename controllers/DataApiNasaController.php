@@ -10,6 +10,7 @@ class DataApiNasa
         $result = curl_exec($ch);
 
         $json = json_decode($result, true);
+
         return $json;
     }
     public static function callApiNasaMarsImage()

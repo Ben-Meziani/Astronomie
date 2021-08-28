@@ -20,14 +20,14 @@ class MainController
                 "title" => $title,
             ]);
         }
-        if ($dataPicture["url"]) {
-            $video = $dataPicture["url"];
-            $this->show('picture',  [
-                "videos" => $video,
-                "explanation" => $description,
-                "title" => $title,
-            ]);
-        }
+        // if (isset($dataPicture["url"])) {
+        //     $video = $dataPicture["url"];
+        //     $this->show('picture',  [
+        //         "videos" => $video,
+        //         "explanation" => $description,
+        //         "title" => $title,
+        //     ]);
+        // }
     }
     public function marsPicture()
     {
@@ -35,9 +35,8 @@ class MainController
         $dataMars = $data->callApiNasaMarsImage();
         $images =  $dataMars['latest_photos'][0]['img_src'];
         $title = $dataMars['latest_photos'][0]['camera']['full_name'];
-        var_dump($title);
          $this->show('mars', [
-             'image' => $images,
+             'image' => $dataMars,
              'title' => $title
         ]);
     }
